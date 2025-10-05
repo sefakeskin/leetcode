@@ -5,14 +5,13 @@
 char* convert(char* s, int numRows) {
     int len = strlen(s);
 
-    // Dinamik new_list
     char **new_list = (char **)malloc(numRows * sizeof(char *));
     for (int i = 0; i < numRows; i++) {
         new_list[i] = (char *)calloc(len, sizeof(char));
     }
 
     int flag = 1;
-    int k = 0;  // s için ayrı index -> artık s++ yok
+    int k = 0;
     for (int i = 0; k < len && i < len; i++) {
         if (flag) {
             for (int j = 0; j < numRows && k < len; j++) {
@@ -29,7 +28,7 @@ char* convert(char* s, int numRows) {
         }
     }
 
-    // Sonucu oluştur
+
     char *new_sentence = (char *)malloc((len + 1) * sizeof(char));
     int t = 0;
     for (int i = 0; i < numRows; i++) {
@@ -41,7 +40,6 @@ char* convert(char* s, int numRows) {
     }
     new_sentence[t] = '\0';
 
-    // Belleği temizle
     for (int i = 0; i < numRows; i++) free(new_list[i]);
     free(new_list);
 
