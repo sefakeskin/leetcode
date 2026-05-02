@@ -2,11 +2,11 @@ class Solution:
     def isValid(self, s: str) -> bool:
         my_stack=[]
         parantheses=list(s)
-        mapping = {")": "(", "}": "{", "]": "["}
+        map_parantheses = {")": "(", "}": "{", "]": "["}
 
         for i in parantheses:
 
-            if my_stack and i in mapping and my_stack[-1]==mapping[i]:
+            if my_stack and i in map_parantheses and my_stack[-1]==map_parantheses[i]:
                 my_stack.pop()
             else:
                 my_stack.append(i)
